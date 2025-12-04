@@ -19,6 +19,12 @@ jobs:
       with:
         node-version: '18'
     
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run unit and integration tests
+      run: npm test
+    
     - name: Check for console.log
       run: |
         if grep -r "console\.log" *.js; then
