@@ -3,8 +3,9 @@ function greet(name) {
     return `Hello, ${name}!`;
 }
 
-function calculateSum(a, b) {
+function calculateSum1(a, b) {
     return a + b;
 }
 
-module.exports = { greet, calculateSum };
+
+module.exports = { greet, calculateSum1 };
