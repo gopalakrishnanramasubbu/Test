@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Running pre-push hook..."
+python3 add_data.py "Pre-push hook executed"
+
+if [ $? -eq 0 ]; then
+    echo "Hook completed successfully"
+    exit 0
+else
+    echo "Hook failed"
+    exit 1
+fi

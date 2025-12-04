@@ -32,3 +32,29 @@ jobs:
           exit 1
         fi
         echo "No console.log found - passed!"
+  
+  python-verify:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Verify Python syntax
+      run: python3 -m py_compile add_data.py
+    
+    - name: Test add_data.py
+      run: |
+        python3 add_data.py "CI test data"
+        if [ -f data.txt ]; then
+          echo "✓ Data file created successfully"
+          cat data.txt
+        else
+          echo "✗ Data file not created"
+          exit 1
+        fi
